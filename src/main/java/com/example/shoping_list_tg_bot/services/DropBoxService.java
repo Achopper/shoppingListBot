@@ -86,7 +86,8 @@ public class DropBoxService {
 
     @PostConstruct
     public void postConstruct() throws IOException {
-        new Auth().authorize(config);
+        DbxRequestConfig dropBoxConfig = DbxRequestConfig.newBuilder("dropbox/shopping-list").build();
+        client = new DbxClientV2(dropBoxConfig, new Auth().authorize(config,dropBoxConfig));
     }
 
     public void deleteList() throws IOException, DbxException {

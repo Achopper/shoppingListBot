@@ -10,11 +10,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Auth {
-    public String authorize(BotConfig config) throws IOException {
-
-        DbxRequestConfig dropBoxConfig = DbxRequestConfig.newBuilder("dropbox/shopping-list").build();
+    public String authorize(BotConfig config, DbxRequestConfig dbxConfig) throws IOException {
         DbxAppInfo info = new DbxAppInfo(config.getDropBoxApiKey(),config.getDropBoxApiSecret());
-        DbxWebAuth webAuth = new DbxWebAuth(dropBoxConfig, info);
+        DbxWebAuth webAuth = new DbxWebAuth(dbxConfig, info);
         String webAuthAutorize = webAuth.authorize(DbxWebAuth.newRequestBuilder().withNoRedirect().build());
 
         System.out.println("1. Go to " + webAuthAutorize);
