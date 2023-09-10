@@ -55,7 +55,7 @@ public class DropBoxService {
     }
     private void addToList(List<String> lines, StringBuilder newContentBuilder) throws DbxException, IOException {
         for (var line : lines){
-            newContentBuilder.append(line).append("\n");
+            newContentBuilder.append(line.trim()).append("\n");
         }
     }
 
