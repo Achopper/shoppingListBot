@@ -1,4 +1,5 @@
 # Shopping bot for telegram
+Put telegram bot token to aplication.properties
 To start run ./start.sh
 # Docker
 docker build -t imageName .
