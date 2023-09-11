@@ -15,10 +15,4 @@ public class BotConfig {
     String botName;
     @Value("${bot.token}")
     String botToken;
-    @Value("${dropBox.apikey}")
-    String dropBoxApiKey;
-    @Value("${dropBox.apiSecret}")
-    String dropBoxApiSecret;
-    @Value("${dropBox.token}")
-    String dropBoxToken;
 }

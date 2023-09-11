@@ -1,7 +1,8 @@
 package com.example.shoping_list_tg_bot.action;
 
 import com.dropbox.core.DbxException;
-import com.example.shoping_list_tg_bot.services.DropBoxService;
+import com.example.shoping_list_tg_bot.services.FIleListService;
+import com.example.shoping_list_tg_bot.services.IFileList;
 import lombok.AllArgsConstructor;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -12,7 +13,7 @@ import java.io.IOException;
 @AllArgsConstructor
 public class ShowListAction implements Action{
     private final String action;
-    private final DropBoxService service;
+    private final IFileList service;
 
     @Override
     public BotApiMethod handle(Update update) {

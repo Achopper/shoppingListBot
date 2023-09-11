@@ -2,7 +2,8 @@ package com.example.shoping_list_tg_bot.bot;
 
 import com.example.shoping_list_tg_bot.action.*;
 import com.example.shoping_list_tg_bot.config.BotConfig;
-import com.example.shoping_list_tg_bot.services.DropBoxService;
+import com.example.shoping_list_tg_bot.services.FIleListService;
+import com.example.shoping_list_tg_bot.services.IFileList;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -19,11 +20,12 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class TelegramBot extends TelegramLongPollingBot {
     private final BotConfig botConfig;
-    private final DropBoxService service;
+    private final IFileList service;
+
     private final Map<String, String> bindingBy = new ConcurrentHashMap<>();
     private  Map<String, Action> actions;
 
-    public TelegramBot(BotConfig botConfig, DropBoxService service) {
+    public TelegramBot(BotConfig botConfig, IFileList service) {
         this.botConfig = botConfig;
         this.service = service;
         this.actions = Map.of(

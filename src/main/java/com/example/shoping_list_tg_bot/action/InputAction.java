@@ -1,20 +1,21 @@
 package com.example.shoping_list_tg_bot.action;
 
 import com.dropbox.core.DbxException;
-import com.example.shoping_list_tg_bot.services.DropBoxService;
+import com.example.shoping_list_tg_bot.services.IFileList;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.Arrays;
 
 
 public class InputAction implements Action{
     private final String action;
-    private final DropBoxService service;
+    private final IFileList service;
 
-    public InputAction(String action, DropBoxService service) {
+    public InputAction(String action, IFileList service) {
         this.action = action;
         this.service = service;
     }
@@ -39,7 +40,7 @@ public class InputAction implements Action{
         var chatId = msg.getChatId().toString();
         try {
                 service.modifyList(action, Arrays.asList(msg.getText().split(",", -1)));
-        } catch (DbxException | IOException e) {
+        } catch (DbxException | IOException | URISyntaxException e) {
             return new SendMessage(chatId, "Looks like wrong input");
         }
         //var text = "Action: " + action + ", data: " + msg.getText();
