@@ -33,5 +33,10 @@ public class ShowListAction implements Action{
         return null;
     }
 
+    @Override
+    public String getAction() {
+        return action;
+    }
+
 
 }

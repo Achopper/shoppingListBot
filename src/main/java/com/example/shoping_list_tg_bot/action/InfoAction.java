@@ -30,4 +30,9 @@ public class InfoAction implements Action{
     public BotApiMethod callback(Update update) {
         return handle(update);
     }
+
+    @Override
+    public String getAction() {
+        return "/start";
+    }
 }

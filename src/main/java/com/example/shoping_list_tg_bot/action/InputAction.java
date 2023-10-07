@@ -48,4 +48,9 @@ public class InputAction implements Action{
 
     }
 
+    @Override
+    public String getAction() {
+        return action;
+    }
+
 }

@@ -30,4 +30,9 @@ public class DeleteListAction implements Action{
     public BotApiMethod callback(Update update) {
         return null;
     }
+
+    @Override
+    public String getAction() {
+        return action;
+    }
 }

@@ -1,6 +1,7 @@
 package com.example.shoping_list_tg_bot.services;
 
 import com.dropbox.core.DbxException;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
@@ -54,7 +55,7 @@ public class FIleListService implements IFileList{
     @Override
     public void addToList(List<String> lines, StringBuilder newContentBuilder) {
         for (var line : lines){
-            newContentBuilder.append(line.trim()).append("\n");
+            newContentBuilder.append(StringUtils.capitalize(line.trim())).append("\n");
         }
     }
 

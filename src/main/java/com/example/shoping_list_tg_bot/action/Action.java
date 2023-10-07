@@ -7,4 +7,6 @@ public interface Action {
     BotApiMethod handle(Update update);
 
     BotApiMethod callback(Update update);
+
+    String getAction();
 }
